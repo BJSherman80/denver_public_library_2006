@@ -14,7 +14,7 @@ class Author
   end
 
   def write(title, year)
-    @books << Book.new({title: title, year: year})
+    @books << Book.new({author_first_name: "#{@first_name}", author_last_name: "#{@last_name}", title: title, year: year})
   end
 
 end
