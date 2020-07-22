@@ -1,5 +1,6 @@
 class Author
   attr_reader :books
+  attr_accessor :write
   def initialize(attributes)
     @first_name = attributes[:first_name]
     @last_name = attributes[:last_name]
@@ -8,6 +9,10 @@ class Author
 
   def name
     @first_name + " " + @last_name
+  end
+
+  def write(title, year)
+    @books << Book.new({title: title, year: year})
   end
 
 end
