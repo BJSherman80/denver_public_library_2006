@@ -1,4 +1,4 @@
-
+require 'pry'
 
 class Author
   attr_reader :books
@@ -14,7 +14,22 @@ class Author
   end
 
   def write(title, year)
-    @books << Book.new({author_first_name: "#{@first_name}", author_last_name: "#{@last_name}", title: title, year: year})
+    new_book = Book.new({author_first_name: @first_name, author_last_name: @last_name, title: title, publication_date: year})
+    @books << new_book
+    new_book
   end
 
-end
+  def oldest_book_publication_year
+    @books.min_by do |book|
+      book.publication_year
+    end
+  end
+
+    def newest_book_publication_year
+      @books.max_by do |book|
+        book.publication_year
+      end
+    end
+
+
+  end
